@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+.Top
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("https://lp-cms-production.imgix.net/2020-11/Ice Cave Marquette.jpg?auto=format&q=40&w=870&dpr=5"); */
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    img
+    {
+        scale: 90%;
+        border-radius: 60%;
+    }
+}
+
+.Middle
+{
+    top:45dvh;
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:5dvh;
+    #Aboutme
+    {
+        display: flex;
+        border: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        width:33.3%
+    }
+    #Social
+    {
+        display: flex;
+        border: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        width:33.3%
+    }
+    #Projects
+    {
+        display: flex;
+        border: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        height:100%;
+        width:33.3%
+    }
+}
+
+.Bottom{
+    display: block;
+    position: fixed;
+    justify-content: left;
+    background-color: red;
+    p {
+        height:100dvh;
+        width:100dvw;
+    }
+    background-image: url(https://www.theregreview.org/wp-content/uploads/2019/11/GettyImages-1078157262.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+aside{
+    position: absolute;
+    z-index: 2;
+    #modalAboutMe
+    {   
+        display: flex;
+        flex-flow: column;
+        width: 33.3dvw;
+    }
+    #modalSocial
+    {
+        display: flex;
+        flex-flow: column;
+        width: 33.3dvw;
+    }
+    #modalProjects
+    {
+        display: flex;
+        flex-flow: column;
+        width: 33.3dvw;
+    }
+}
