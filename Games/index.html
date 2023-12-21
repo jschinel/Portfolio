@@ -10,16 +10,116 @@
 </head>
 <body>
 
-    <div class="rulesContainer">
+    <div class="rulesContainer"> 
+
         <h1>RULES</h1>
-        <p id = "rules"> filler</p>
+        <p id = "rules">
+            The computer will select a random word that corresponds to the category you have selected<b>
+            </b>
+            Select a letter that you think the word contains<b>
+            </b>
+            If the letter you have selected is correct it will be be displayed 
+
+            </b>
+
+            Choose your category below </p>
         <div id ="choices">
-            <li>Christmas Items</li>
-            <li>Beach Items</li>
-            <li>Fruit</li>
-            <li>Vegetables</li>
+            <button id="christmas">Christmas Items</button>
+            <!-- <box>Beach Items</box>
+            <box>Fruit</box>
+            <box>Vegetables</box> -->
         </div>
     </div>
+    <section class = "game">
+        <div class="keyboard" id = playerChoice >
+             <button id = "A" onclick="getbutton(this)">A</button>
+             <button id = "B" onclick="getbutton(this)">B</button>
+             <button id = "C" onclick="getbutton(this)">C</button>
+             <button id = "D" onclick="getbutton(this)">D</button>
+             <button id = "E" onclick="getbutton(this)">E</button>
+             <button id = "F" onclick="getbutton(this)">F</button>
+             <button id = "G" onclick="getbutton(this)">G</button>
+             <button id = "H" onclick="getbutton(this)">H</button>
+             <button id = "I" onclick="getbutton(this)">I</button>
+             <button id = "J" onclick="getbutton(this)">J</button>
+             <button id = "K" onclick="getbutton(this)">K</button>
+             <button id = "L" onclick="getbutton(this)">L</button>
+             <button id = "M" onclick="getbutton(this)">M</button>
+             <button id = "N" onclick="getbutton(this)">N</button>
+             <button id = "O" onclick="getbutton(this)">O</button>
+             <button id = "P" onclick="getbutton(this)">P</button>
+             <button id = "Q" onclick="getbutton(this)">Q</button>
+             <button id = "R" onclick="getbutton(this)">R</button>
+             <button id = "S" onclick="getbutton(this)">S</button>
+             <button id = "T" onclick="getbutton(this)">T</button>
+             <button id = "U" onclick="getbutton(this)">U</button>
+             <button id = "V" onclick="getbutton(this)">V</button>
+             <button id = "W" onclick="getbutton(this)">W</button>
+             <button id = "X" onclick="getbutton(this)">X</button>
+             <button id = "Y" onclick="getbutton(this)">Y</button>
+             <button id = "Z" onclick="getbutton(this)">Z</button>
+             <button id ="rulesButton">RULES</button>
+        </div>
+        <div id ="computerChoice">
+            <li id = "l1">_</li>
+            <li id = "l2">_</li>
+            <li id = "l3">_</li>
+            <li id = "l4">_</li>
+            <li id = "l5">_</li>
+            <li id = "l6">_</li>
+            <li id = "l7">_</li>
+            <li id = "l8">_</li>
+            <li id = "l9">_</li>
+            <li id = "l10">_</li>
+        </div>
+
+        <div id ="hangman">
+            <div id = "hangmanContainer">
+
+                <shape id = "head"></shape>
+                <shape id = "torso"></shape>
+                <shape id = "rightArm"></shape>
+                <shape id = "leftArm"></shape>
+                <shape id = "rightLeg"></shape>
+                <shape id = "leftLeg"></shape>
+                <shape id = "rope"></shape>
+                <shape id = "topBeam"></shape>
+                <shape id = "middleBeam"></shape>
+                <shape id = "bottomBeam"></shape>
+
+            </div>
+        </div>
+
+       <div id ="RightSide">
+        <p></p>
+       </div>
+
+       <div id ="LeftSide">
+        <p></p>
+       </div>
+       
+
+    </section>
+    <script>
+        let playerChoice = document.querySelector(".keyboard")
+        function gotolink(link)
+        {
+            if(link.value=="https://www.linkedin.com/in/jon-schinella-280856b4")
+            {
+                window.open("https://www.linkedin.com/in/jon-schinella-280856b4")
+            }
+            else
+            {
+                location.href=link.value; 
+            }
+        }
+        function getbutton(link)
+        {
+               playerChoice.id =link.id
+               link.id = "clicked"
+               console.log(link.id)
+        }
+    </script>
 </body>
 </aside>
 </aside>
