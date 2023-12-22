@@ -9,27 +9,32 @@
     <button id="Home" onclick="gotolink(this)" value="../index.html">Home</button>
 </head>
 <body>
+    <div id= "popup">
+        <div class="rulesContainer"> 
 
-    <div class="rulesContainer"> 
+            <h1>RULES</h1>
+            <p id = "rules">
+                The computer will select a random word that corresponds to the category you have selected<b>
+                </b>
+                Select a letter that you think the word contains<b>
+                </b>
+                If the letter you have selected is correct it will be be displayed 
 
-        <h1>RULES</h1>
-        <p id = "rules">
-            The computer will select a random word that corresponds to the category you have selected<b>
-            </b>
-            Select a letter that you think the word contains<b>
-            </b>
-            If the letter you have selected is correct it will be be displayed 
+                </b>
 
-            </b>
-
-            Choose your category below </p>
-        <div id ="choices">
-            <button id="christmas">Christmas Items</button>
-            <!-- <box>Beach Items</box>
-            <box>Fruit</box>
-            <box>Vegetables</box> -->
+                Choose your category below </p>
+            <div id ="choices">
+                <button id="christmas">Christmas Items</button>
+            </div>
+        </div>
+        <div class="results"> 
+            <h1 id="resultsText">YOU WON!!!</h1>
+            <p>Would you like to play again?</p>
+            <button id=Yes>YES</button>
+            <button id="No" onclick="gotolink(this)" value="../index.html">NO</button>
         </div>
     </div>
+    
     <section class = "game">
         <div class="keyboard" id = playerChoice >
              <button id = "A" onclick="getbutton(this)">A</button>
@@ -91,11 +96,12 @@
         </div>
 
        <div id ="RightSide">
-        <p></p>
+        <p>Incorrect Letters</p>
        </div>
 
        <div id ="LeftSide">
-        <p></p>
+
+        <p id = "wrongletters"></p>
        </div>
        
 
@@ -116,7 +122,8 @@
         function getbutton(link)
         {
                playerChoice.id =link.id
-               link.id = "clicked"
+               link.id = "clicked";
+               link.disabled=true;
                console.log(link.id)
         }
     </script>

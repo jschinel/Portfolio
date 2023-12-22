@@ -6,24 +6,40 @@
     <title>Jon Schinella</title>
     <link rel="stylesheet" href="MAIN_styles.css">
     <script src="MAIN_app.js" defer></script>
-    <button id="Home">Home</button>
 </head>
 <body>
     <Div class="Top">
-        <p> 
-            Experience<B></B>
-            Controls Engineer: 8 Years<B></B>
-            Electrical Engineer: 2 Years<B></B>
-            Electrical Technician: 10 Years<B></B>
-            Software Developer: In training<B></B>
-        </p>
+        <container id = "history">
+            <p> 
+                <box id = "experience">
+                    <Span>Experience</Span><B></B>
+                    Controls Engineer: 8 Years<B></B>
+                    Electrical Engineer: 2 Years<B></B>
+                    Electrical Technician: 10 Years<B></B>
+                    Software Developer: In training<B></B>
+                </box>
+            </p>
+            <p> 
+                <box id = "education">
+                    <Span>Education</Span><B></B>
+                    Northern Michigan University<b></b>
+                    Electrical Engineering: Bachelors<B></B>
+                    Industrial Power Tech: Associates<B></B>
+                </box>
+            </p>
+        </container>
+
         <img src= https://media.licdn.com/dms/image/C4E03AQHuJ76l66ooCw/profile-displayphoto-shrink_800_800/0/1517586957202?e=1708560000&v=beta&t=DjT6SrH7r3StOfrSIcRwL9jBwcKUhKnhaL3cdjPK7Tg>
-        <p> 
-            Jon Schinella <b></b>
-            Email: jonschinella@gmail.com<b></b>
-            Location: Negaunee,Michgian<b></b>
-            Current Title: Student<b></b>
-         </p>
+
+        <container id ="status">
+            <p> 
+                Name: Jon Schinella <b></b>
+                Email: jonschinella@gmail.com<b></b>
+                Location: Negaunee,Michgian<b></b>
+                Current Title: Student<b></b>
+                Resume:<button id ="resume" onclick="gotolink(this)" value="Jon-Schinella.pdf">Jon-Schinella</button>
+            </p>
+        </container>
     </Div>
     <Div class="MouseExit">
         <Div class="Middle">
@@ -45,9 +61,9 @@
             <script>
                 function gotolink(link)
                 {
-                    if(link.value=="https://www.linkedin.com/in/jon-schinella-280856b4")
+                    if(link.value=="https://www.linkedin.com/in/jon-schinella-280856b4"||link.value=="Jon-Schinella.pdf")
                     {
-                        window.open("https://www.linkedin.com/in/jon-schinella-280856b4")
+                        window.open(link.value)
                     }
                     else
                     {
@@ -58,7 +74,7 @@
         </aside>
     </Div>
     <div class="Bottom">
-        <p id = "bio"> A short bio of jon schinella</p>
+        <p id = "bio"> I am a very resource engineer with a long history within the electronics field.Over the years i have honed my skills in technical data, engineering practices and diagnostic troubleshooting, all with keeping safety in mind. I am currently enrolled at General Assembly's SEI course studying software development </p>
     </div>
 </body>
 </aside>

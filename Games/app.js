@@ -4,6 +4,7 @@
 let computerWord=""
 let wrongNum = 0;
 let correctNum=0;
+let wrong = [];
 
 /* Create a function called `$` for selecting an HTML element
 --------------------------------------------------------------------- */
@@ -37,18 +38,23 @@ function grabWord (category)
 /* All HTML elements we need to manipulate
 --------------------------------------------------------------------- */
 
-
+const popup = $('#popup')
 const head = $("#head")
 const torso = $('#torso')
 const leftArm = $('#leftArm')
 const rightArm = $('#rightArm')
 const leftLeg = $('#leftLeg')
 const rightLeg = $('#rightLeg')
+const results = $('.results')
 const rulesContainer = $('.rulesContainer')
+const wrongLetters = $('#wrongletters')
 const gameDisplay = $('.game')
 const christmasPlayGame = $('#christmas')
 const rules = $('#rulesButton')
 const keyBoardBtn = $('.keyboard')
+const playAgain = $('#Yes')
+const resultsText = $('#resultsText')
+// const buttonClicked = $("#clicked")
 
 
 /* All HTML elements we need to manipulate computers choice section
@@ -87,20 +93,20 @@ for(let i = 0 ; i<=computerLetter.length-1; i ++)
     computerLetter[i].innerText="_"
 }
 
-/* THIS SECTION IS FOR THE GETTING RID OF HANGMAN
+
+/* THIS SECTION IS FOR THE Initial Screens
 --------------------------------------------------------------------- */
 
+for(let i = 0 ; i<=26; i ++)
+{
+    const enableBTN = document.getElementById("clicked")
+//    enableBTN.disabled=false;
+   console.log(enableBTN)
+}
 
-rulesContainer.style.display = "grid";
-gameDisplay.style.display = "none";
 
-
-
-
-/* THIS SECTION IS FOR THE GETTING RID OF HANGMAN
+/* THIS SECTION IS FOR THE SETTING UP HANGMAN
 --------------------------------------------------------------------- */
-
-
 head.style.display = "none";
 torso.style.display = "none";
 leftArm.style.display = "none";
@@ -108,13 +114,15 @@ rightArm.style.display = "none";
 leftLeg.style.display = "none";
 rightLeg.style.display = "none";
 
+const hangman= [head,torso,leftArm,rightArm,leftLeg,rightLeg];
 
 /* THIS SECTION IS FOR THE GETTING RID OF HANGMAN AND GRABBING RANDOM WORD FROM CORRESPONDING ARRAY
 --------------------------------------------------------------------------------------------------*/
-
 christmasPlayGame.addEventListener('click', () => 
 {
-    rulesContainer.style.display = "none";
+    popup.style.display="none"
+    results.style.display="none";
+    rulesContainer.style.display = "none"
     gameDisplay.style.display = "grid";
     for(let i = 0 ; i<=computerLetter.length-1; i ++)
     {
@@ -126,6 +134,7 @@ christmasPlayGame.addEventListener('click', () =>
     for(let i = 0 ; i<=computerWord.length-1 ; i ++)
     {
         let tempId = document.getElementById(computerLetter[i].id)
+        computerLetter[i].innerText="_";
         tempId.style.display="grid"
         console.log(computerWord[i]);
     }
@@ -133,8 +142,10 @@ christmasPlayGame.addEventListener('click', () =>
 )
 rules.addEventListener('click', () => 
 {
-    rulesContainer.style.display = "grid";
-    gameDisplay.style.display = "none";
+    popup.style.display="grid"
+    results.style.display="none";
+    rulesContainer.style.display ="grid"
+    gameDisplay.style.display ="none";
 }
 )
 keyBoardBtn.addEventListener('click', () => 
@@ -147,26 +158,62 @@ keyBoardBtn.addEventListener('click', () =>
         {
             correctNum=1;
             computerLetter[i].innerText = keyBoardBtn.id ;
+            
             console.log("CORRECT")
         }
-        if(correctNum!=1 && i == computerWord.length-1)
+        if( correctNum != 1 && i == (computerWord.length-1))
         {
-            tempBody = hangman[wrongNum]
-            tempBody.style.display="grid";
-            disableBtn = document.querySelector('clicked')
-            // disableBtn.setattribute(disable).value="true"
-            // disableBtn.setattribute(id[0])=keyBoardBtn.id;
-            console.log(disableBtn);
-            wrongNum++
+            tempBody = hangman[wrongNum];
+            tempBody.style.display="grid";           
+            wrong[wrongNum] = keyBoardBtn.id;
+            wrongLetters.innerText=wrong;
+            buttonClicked=document.getElementById("clicked");
+            buttonClicked.setAttribute('id',keyBoardBtn.id);
+            wrongNum++;
             correctNum=0;
-            console.log("WRONG")
+            console.log(buttonClicked.id)
+            if(wrongNum==hangman.length)
+            {
+                resultsText.innerText="LOOKS LIKE YOU LOST";
+                popup.style.display="grid";
+                results.style.display="grid";
+                rulesContainer.style.display = "none"
+                gameDisplay.style.display = "none";
+                for(let n = 0 ; n < wrong.length ; n ++)
+                {
+                    tempchar=wrong[n]
+                    console.log(tempchar)
+                    tempButton=document.getElementById(tempchar)
+                    tempButton.disabled=false;
+                }
+            }
         }
-        
     }
 })
+playAgain.addEventListener('click', () => 
+{
+    popup.style.display="none"
+    results.style.display="none";
+    rulesContainer.style.display = "none"
+    gameDisplay.style.display = "grid";
+    for(let i = 0 ; i<=computerLetter.length-1; i ++)
+    {
+        let tempId = document.getElementById(computerLetter[i].id)
+        tempId.style.display="none"
+    }
+    grabWord(christmasChoices);
+    console.clear();
+    for(let i = 0 ; i<=computerWord.length-1 ; i ++)
+    {
+        let tempId = document.getElementById(computerLetter[i].id)
+        computerLetter[i].innerText="_";
+        tempId.style.display="grid"
+        console.log(computerWord[i]);
+    }
+}
+)
 
 
 /* THIS SECTION CONTAINS THE ARRAY OF COMPUTER CHOICES
 --------------------------------------------------------------------- */
 const christmasChoices= ["santa","presents","coal","snow","sledding"];
-const hangman= [head,torso,leftArm,rightArm,leftLeg,rightLeg];
