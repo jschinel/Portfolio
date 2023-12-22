@@ -94,13 +94,14 @@
 
             </div>
         </div>
-
        <div id ="RightSide">
-        <p>Incorrect Letters</p>
+        <p>If you think you know the word type it in here!</p>
+        <input id = "wholeword" type="text">
+        <button id = "submit">Submit</button>
        </div>
 
        <div id ="LeftSide">
-
+        <p>Incorrect Letters</p>
         <p id = "wrongletters"></p>
        </div>
        
@@ -121,10 +122,13 @@
         }
         function getbutton(link)
         {
+            if(link.id!="clicked")
+            {
                playerChoice.id =link.id
                link.id = "clicked";
-               link.disabled=true;
+            //    link.disabled=true;
                console.log(link.id)
+            }
         }
     </script>
 </body>

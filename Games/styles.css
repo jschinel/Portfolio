@@ -44,7 +44,6 @@
         height:50dvh;
         width:50dvw;
         background-color: yellow;
-        row-gap: 5px;
         border: 1px solid blue;
         justify-content: center;
 
@@ -53,7 +52,7 @@
             display: inherit;
             grid-column: 1/ span 5;
             grid-row: 1/1;
-            background-color: brown;
+            background-color: #575752;
             text-decoration: underline;
             text-decoration-style: solid;
             justify-content: center;
@@ -63,7 +62,7 @@
             display: inherit;
             grid-column: 1 /span 5;
             grid-row: 2/2;
-            background-color: red;
+            background-color: #575752;
             justify-content: center;
             align-items: center;
         }
@@ -75,27 +74,27 @@
             grid-auto-flow: column;
             justify-items: center;
             align-items: center;
-            background-color: purple;
+            background-color: #575752;
             :nth-child(1)   
             {
                 background-color: #6b5f6b;
-                color:white;
+                color:black;
                 padding: 5px;
             }
             :nth-child(2)
             {
-                background-color: purple;
+                background-color: #575752;
             }
             :nth-child(3)
             {
 
-                background-color: purple;
+                background-color:#575752;
 
             }
             :nth-child(4)
             {
 
-                background-color: purple;
+                background-color:#575752;
             }
         }
     }
@@ -110,7 +109,7 @@
         width:50dvw;
         background-color: #575752;
         row-gap: 5px;
-        border: 1px solid blue;
+        border: 1px solid #575752;
         justify-content: center;
         justify-items: center;
         h1{
@@ -164,8 +163,6 @@
     max-width:100dvw;
     grid-template-columns: repeat(10,1fr);
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    background-color: yellow;
-    row-gap: 5px;
     column-gap:  5px solid black;
     border: 1px solid blue;
     z-index: 0;   
@@ -231,6 +228,7 @@
         justify-content: center;
         min-height:572px;
         min-width:512px;
+        border: 5px solid black;
         #hangmanContainer
         {
             grid-template-columns: 300px 1fr 1fr 1fr;
@@ -240,6 +238,7 @@
             display: grid;
             justify-items: center;
             align-items: center;
+            border: 5px solid black;
                 #head
                 {
                     grid-column: 1;
@@ -360,8 +359,15 @@
         display: grid;
         grid-column:1 /span 3;
         grid-row: 1 / span 3; 
+        justify-items: center;
+        align-items: center;
+        border: 5px solid black;
+        background-color: #575752;
+
         p{
-            background-color: green;
+            display: grid;
+            background-color: #575752;
+            font-size: 50pt;
         }
 
     }
@@ -369,9 +375,13 @@
     {
         display: grid;
         grid-column:8 /span 10;
-        grid-row: 1 / span 3; 
+        grid-row: 1 / span 3;
+        justify-items: center;
+        align-items: center; 
+        border: 5px solid black;
+        background-color: #575752;
         p{
-            background-color: green;
+            background-color: #575752;
         }
     }
 }

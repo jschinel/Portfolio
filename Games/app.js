@@ -1,9 +1,11 @@
 
 /* Reset Variables
 --------------------------------------------------------------------- */
-let computerWord=""
-let wrongNum = 0;
+let computerWord="";
+let wrongIndex = 0;
+let correctIndex = 0;
 let correctNum=0;
+let correct = [];
 let wrong = [];
 
 /* Create a function called `$` for selecting an HTML element
@@ -31,7 +33,7 @@ function calcStat (min,max)
 
 function grabWord (category)
 {
-    computerWord = category[calcStat(0,christmasChoices.length)]
+    computerWord = category[calcStat(0,(christmasChoices.length))]
 }
 
 
@@ -54,7 +56,8 @@ const rules = $('#rulesButton')
 const keyBoardBtn = $('.keyboard')
 const playAgain = $('#Yes')
 const resultsText = $('#resultsText')
-// const buttonClicked = $("#clicked")
+const wholeword = $("#wholeword")
+const submit = $("#submit")
 
 
 /* All HTML elements we need to manipulate computers choice section
@@ -100,7 +103,7 @@ for(let i = 0 ; i<=computerLetter.length-1; i ++)
 for(let i = 0 ; i<=26; i ++)
 {
     const enableBTN = document.getElementById("clicked")
-//    enableBTN.disabled=false;
+
    console.log(enableBTN)
 }
 
@@ -148,48 +151,112 @@ rules.addEventListener('click', () =>
     gameDisplay.style.display ="none";
 }
 )
-keyBoardBtn.addEventListener('click', () => 
+keyBoardBtn.addEventListener('click', function(e)
 {
+    wholeword.value="";
+    buttonClicked=document.getElementById("clicked");
+    buttonClicked.setAttribute('id',keyBoardBtn.id);
+    buttonClicked.setAttribute('disabled','true')
     correctNum=0;
-    for(let i = 0 ; i < computerWord.length ; i ++)
+    for(let i = 0 ; i <= computerWord.length-1; i ++)
     {
-        let tempString = computerWord[i].toUpperCase(i)
+        let tempString = computerWord[i].toUpperCase(i);
         if(keyBoardBtn.id==tempString)
         {
             correctNum=1;
             computerLetter[i].innerText = keyBoardBtn.id ;
-            
-            console.log("CORRECT")
+            correct[correctIndex] = keyBoardBtn.id;
+            correctIndex++
+            if(correctIndex==computerWord.length)
+            {
+                keyBoardBtn.id="";
+                resultsText.innerText="WOW LOOKS LIKE YOU WON!!";
+                popup.style.display="grid";
+                results.style.display="grid";
+                rulesContainer.style.display = "none"
+                gameDisplay.style.display = "none";
+                if(wrong.length!=0)
+                {
+                    for(let n = 0 ; n < wrong.length ; n ++)
+                    {
+                        hangman[n].style.display="none"
+                        tempchar=wrong[n]
+                        console.log(tempchar)
+                        tempButton=document.getElementById(tempchar)
+                        tempButton.disabled=false;
+                    }
+                }
+                if(correct.length!=0)
+                {
+                    for(let n = 0 ; n < correct.length ; n ++)
+                    {
+                        tempchar=correct[n]
+                        console.log(tempchar)
+                        tempButton=document.getElementById(tempchar)
+                        tempButton.disabled=false;
+                    }
+                }
+
+                correctIndex=0
+                wrongIndex=0;
+                wrongLetters.innerText="";
+                wrong=[];
+                correct=[];
+            }
         }
         if( correctNum != 1 && i == (computerWord.length-1))
         {
-            tempBody = hangman[wrongNum];
+            tempBody = hangman[wrongIndex];
             tempBody.style.display="grid";           
-            wrong[wrongNum] = keyBoardBtn.id;
+            wrong[wrongIndex] = keyBoardBtn.id;
             wrongLetters.innerText=wrong;
-            buttonClicked=document.getElementById("clicked");
-            buttonClicked.setAttribute('id',keyBoardBtn.id);
-            wrongNum++;
-            correctNum=0;
             console.log(buttonClicked.id)
-            if(wrongNum==hangman.length)
+            keyBoardBtn.id="";
+            wrongIndex++;
+            correctNum=0;
+            if(wrongIndex==hangman.length)
             {
                 resultsText.innerText="LOOKS LIKE YOU LOST";
                 popup.style.display="grid";
                 results.style.display="grid";
                 rulesContainer.style.display = "none"
                 gameDisplay.style.display = "none";
-                for(let n = 0 ; n < wrong.length ; n ++)
+                if(wrong.length!=0)
                 {
-                    tempchar=wrong[n]
-                    console.log(tempchar)
-                    tempButton=document.getElementById(tempchar)
-                    tempButton.disabled=false;
+                    for(let n = 0 ; n < wrong.length ; n ++)
+                    {
+                        hangman[n].style.display="none"
+                        console.log(wrong.length)
+                        console.log(n)
+                        console.log("why")
+                        tempchar=wrong[n]
+                        console.log(tempchar)
+                        tempButton=document.getElementById(tempchar)
+                        tempButton.disabled=false;
+                        console.log(tempButton.disabled)
+                    }
                 }
+                if(correct.length!=0)
+                {
+                    for(let n = 0 ; n < correct.length ; n ++)
+                    {
+                        tempchar=correct[n]
+                        console.log(tempchar)
+                        tempButton=document.getElementById(tempchar)
+                        tempButton.disabled=false;
+                    }
+                }
+                correctIndex=0;
+                wrongIndex=0;
+                wrongLetters.innerText="";
+                wrong=[];
+                correct=[];
             }
         }
     }
+
 })
+
 playAgain.addEventListener('click', () => 
 {
     popup.style.display="none"
@@ -210,8 +277,98 @@ playAgain.addEventListener('click', () =>
         tempId.style.display="grid"
         console.log(computerWord[i]);
     }
+    wholeword.value="";
 }
 )
+
+
+submit.addEventListener('click', () => 
+{
+    console.log(wholeword.value)
+    if(wholeword.value!="")
+    {
+        if(wholeword==computerWord)
+        {
+            keyBoardBtn.id="";
+            resultsText.innerText="WOW LOOKS LIKE YOU WON!!";
+            popup.style.display="grid";
+            results.style.display="grid";
+            rulesContainer.style.display = "none"
+            gameDisplay.style.display = "none";
+            if(wrong.length!=0)
+            {
+                for(let n = 0 ; n < wrong.length ; n ++)
+                {
+                    hangman[n].style.display="none"
+                    tempchar=wrong[n]
+                    console.log(tempchar)
+                    tempButton=document.getElementById(tempchar)
+                    tempButton.disabled=false;
+                }
+            }
+            if(correct.length!=0)
+            {
+                for(let n = 0 ; n < correct.length ; n ++)
+                {
+                    tempchar=correct[n]
+                    console.log(tempchar)
+                    tempButton=document.getElementById(tempchar)
+                    tempButton.disabled=false;
+                }
+            }
+            correctIndex=0
+            wrongIndex=0;
+            wrongLetters.innerText="";
+            wrong=[];
+            correct=[];
+        }
+        if(wholeword!=computerWord)
+        {
+            if(wrongIndex==hangman.length)
+            {
+                resultsText.innerText="LOOKS LIKE YOU LOST";
+                popup.style.display="grid";
+                results.style.display="grid";
+                rulesContainer.style.display = "none"
+                gameDisplay.style.display = "none";
+                if(wrong.length!=0)
+                {
+                    for(let n = 0 ; n < wrong.length ; n ++)
+                    {
+                        hangman[n].style.display="none"
+                        console.log(wrong.length)
+                        console.log(n)
+                        console.log("why")
+                        tempchar=wrong[n]
+                        console.log(tempchar)
+                        tempButton=document.getElementById(tempchar)
+                        tempButton.disabled=false;
+                        console.log(tempButton.disabled)
+                    }
+                }
+                if(correct.length!=0)
+                {
+                    for(let n = 0 ; n < correct.length ; n ++)
+                    {
+                        tempchar=correct[n]
+                        console.log(tempchar)
+                        tempButton=document.getElementById(tempchar)
+                        tempButton.disabled=false;
+                    }
+                }
+                correctIndex=0;
+                wrongIndex=0;
+                wrongLetters.innerText="";
+                wrong=[];
+                correct=[];
+            }
+            hangman[wrongIndex].style.display="grid"
+            wrongIndex++
+
+        }
+    }
+    wholeword.value="";
+} )
 
 
 /* THIS SECTION CONTAINS THE ARRAY OF COMPUTER CHOICES
