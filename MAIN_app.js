@@ -21,8 +21,6 @@ projectsModal.style.display = "none";
 
 /* THIS SECTION IS FOR THE NAVIGATION (Tablets and Computer Screens)
 --------------------------------------------------------------------- */;
-if(window.innerWidth>500)
-{
     aboutMeBox.addEventListener('mouseenter', () =>
     {
         aboutMeModal.style.display = "flex"
@@ -45,16 +43,7 @@ if(window.innerWidth>500)
         projectsModal.style.display = "flex"
         modalContainer.style.marginLeft= "66.6dvw"
     })
-    modalMouseArea.addEventListener('mouseleave', () => 
-    {
-        aboutMeModal.style.display = "none"
-        socialModal.style.display = "none"
-        projectsModal.style.display = "none"
-    })
-}
 
-if(window.innerWidth<500)
-{
     aboutMeBox.addEventListener('click', () =>
     {
         aboutMeModal.style.display = "flex"
@@ -83,4 +72,3 @@ if(window.innerWidth<500)
         socialModal.style.display = "none"
         projectsModal.style.display = "none"
     })
-}
