@@ -7,6 +7,7 @@ let correctIndex = 0;
 let correctNum=0;
 let correct = [];
 let wrong = [];
+let tempWholeWord = "";
 
 /* Create a function called `$` for selecting an HTML element
 --------------------------------------------------------------------- */
@@ -33,7 +34,7 @@ function calcStat (min,max)
 
 function grabWord (category)
 {
-    computerWord = category[calcStat(0,(christmasChoices.length))]
+    computerWord = category[calcStat(0,(category.length))]
 }
 
 
@@ -52,6 +53,8 @@ const rulesContainer = $('.rulesContainer')
 const wrongLetters = $('#wrongletters')
 const gameDisplay = $('.game')
 const christmasPlayGame = $('#christmas')
+const summerPlayGame = $('#summer')
+const sportsPlayGame = $('#sports')
 const rules = $('#rulesButton')
 const keyBoardBtn = $('.keyboard')
 const playAgain = $('#Yes')
@@ -74,6 +77,16 @@ const letter7 = $("#l7")
 const letter8 = $("#l8")
 const letter9 = $("#l9")
 const letter10 = $("#l10")
+const letter11 = $("#l11")
+const letter12 = $("#l12")
+const letter13 = $("#l13")
+const letter14 = $("#l14")
+const letter15 = $("#l15")
+const letter16 = $("#l16")
+const letter17 = $("#l17")
+const letter18 = $("#l18")
+const letter19 = $("#l19")
+const letter20 = $("#l20")
 
 computerLetter=
 [
@@ -87,6 +100,16 @@ computerLetter=
     letter8,
     letter9,
     letter10,
+    letter11,
+    letter12,
+    letter13,
+    letter14,
+    letter15,
+    letter16,
+    letter17,
+    letter18,
+    letter19,
+    letter20,
 ]
 
 for(let i = 0 ; i<=computerLetter.length-1; i ++)
@@ -143,6 +166,55 @@ christmasPlayGame.addEventListener('click', () =>
     }
 }
 )
+
+
+sportsPlayGame.addEventListener('click', () => 
+{
+    popup.style.display="none"
+    results.style.display="none";
+    rulesContainer.style.display = "none"
+    gameDisplay.style.display = "grid";
+    for(let i = 0 ; i<=computerLetter.length-1; i ++)
+    {
+        let tempId = document.getElementById(computerLetter[i].id)
+        tempId.style.display="none"
+    }
+    grabWord(sportsChoices);
+    console.clear();
+    for(let i = 0 ; i<=computerWord.length-1 ; i ++)
+    {
+        let tempId = document.getElementById(computerLetter[i].id)
+        computerLetter[i].innerText="_";
+        tempId.style.display="grid"
+        console.log(computerWord[i]);
+    }
+}
+)
+
+summerPlayGame.addEventListener('click', () => 
+{
+    popup.style.display="none"
+    results.style.display="none";
+    rulesContainer.style.display = "none"
+    gameDisplay.style.display = "grid";
+    for(let i = 0 ; i<=computerLetter.length-1; i ++)
+    {
+        let tempId = document.getElementById(computerLetter[i].id)
+        tempId.style.display="none"
+    }
+    grabWord(summerChoices);
+    console.clear();
+    for(let i = 0 ; i<=computerWord.length-1 ; i ++)
+    {
+        let tempId = document.getElementById(computerLetter[i].id)
+        computerLetter[i].innerText="_";
+        tempId.style.display="grid"
+        console.log(computerWord[i]);
+    }
+}
+)
+
+
 rules.addEventListener('click', () => 
 {
     popup.style.display="grid"
@@ -285,9 +357,15 @@ playAgain.addEventListener('click', () =>
 submit.addEventListener('click', () => 
 {
     console.log(wholeword.value)
-    if(wholeword.value!="")
+    console.log(wholeword.value.length)
+    for(let i = 0 ; i < wholeword.value.length; i++)
     {
-        if(wholeword==computerWord)
+        tempWholeWord = wholeword.value.toLowerCase(i);
+        console.log(tempWholeWord)
+    }
+    if(wholeword.value != "")
+    {
+        if(tempWholeWord==computerWord)
         {
             keyBoardBtn.id="";
             resultsText.innerText="WOW LOOKS LIKE YOU WON!!";
@@ -322,7 +400,7 @@ submit.addEventListener('click', () =>
             wrong=[];
             correct=[];
         }
-        if(wholeword!=computerWord)
+        if(tempWholeWord!=computerWord)
         {
             if(wrongIndex==hangman.length)
             {
@@ -364,7 +442,6 @@ submit.addEventListener('click', () =>
             }
             hangman[wrongIndex].style.display="grid"
             wrongIndex++
-
         }
     }
     wholeword.value="";
@@ -373,4 +450,6 @@ submit.addEventListener('click', () =>
 
 /* THIS SECTION CONTAINS THE ARRAY OF COMPUTER CHOICES
 --------------------------------------------------------------------- */
-const christmasChoices= ["santa","presents","coal","snow","sledding"];
+const christmasChoices= ["santa","presents","coal","snow","sledding","cookies","snowman","reindeer","chestnuts","ornaments"];
+const sportsChoices= ["basketball","Soccer","football","baseball","tennis","hockey","volleyball","rugby","boxing","cricket"];
+const summerChoices= ["beach","fishing","boating","vacation","sunburn","surfing","sandals","pool","sand","bonfire","sunset"];

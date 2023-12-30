@@ -14,17 +14,22 @@
 
             <h1>RULES</h1>
             <p id = "rules">
-                The computer will select a random word that corresponds to the category you have selected<b>
+                Once a category is selected below a random word will be chosen<b>
                 </b>
-                Select a letter that you think the word contains<b>
+                Use the on screen keyboard to select the letter that you think the word conatains<b>
                 </b>
                 If the letter you have selected is correct it will be be displayed 
-
                 </b>
+                If its incorrect it will be listed on the left hand side under "Incorrect Letters" AND a piece of the hangman will be drawn on.<b>
+                </b>
+                You only have 6 chances! At any time you think you know the answer you can type it in on the right hand side. Make sure to submit!<B>
+                </B>
 
-                Choose your category below </p>
+                Good Luck!!<B></B>Choose your category below </p>
             <div id ="choices">
                 <button id="christmas">Christmas Items</button>
+                <button id="summer">Summer Items</button>
+                <button id="sports">Sports</button>
             </div>
         </div>
         <div class="results"> 
@@ -76,6 +81,17 @@
             <li id = "l8">_</li>
             <li id = "l9">_</li>
             <li id = "l10">_</li>
+            <li id = "l11">_</li>
+            <li id = "l12">_</li>
+            <li id = "l13">_</li>
+            <li id = "l14">_</li>
+            <li id = "l15">_</li>
+            <li id = "l16">_</li>
+            <li id = "l17">_</li>
+            <li id = "l18">_</li>
+            <li id = "l19">_</li>
+            <li id = "l20">_</li>
+
         </div>
 
         <div id ="hangman">
@@ -126,7 +142,6 @@
             {
                playerChoice.id =link.id
                link.id = "clicked";
-            //    link.disabled=true;
                console.log(link.id)
             }
         }
