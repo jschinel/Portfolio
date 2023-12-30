@@ -137,9 +137,6 @@
         align-self: center;
         font-size: 20pt;
     }
-    /* background-image: url(https://media.gettyimages.com/photos/michigans-caribbean-pristine-waters-of-lake-superior-pictured-rocks-picture-id136169151);
-    background-repeat: no-repeat;
-    background-size: cover; */
     z-index: 1;
 }
 
@@ -175,7 +172,6 @@ aside{
     }
 }
 
-
 @media screen and (max-width: 950px)
 {
     .Top
@@ -188,17 +184,6 @@ aside{
         background-color: rgb(88, 128, 163);
         padding: 10px;
         column-gap: 10px;
-        #Home
-        {
-            display: block;
-            position:absolute;
-            border-radius: 15%;
-            margin: -335px 0 0 -10px;
-            width: 75px;
-            height: 50px;
-            background-color: white;
-            z-index: 1;
-        }
         #history
         {
             margin-left: 5%;
@@ -224,7 +209,7 @@ aside{
         #status
         {
             width: 30%;
-            margin-right:100px;
+            margin-left: 50px;
             justify-content: center;
             p
             {
@@ -239,4 +224,21 @@ aside{
             }
         }
     }
+    .Bottom{
+        display: grid;
+        position: fixed;
+        justify-content: center;
+        background-color: rgb(88, 128, 163);
+        height:100dvh;
+        width:100dvw;
+        p {
+            height: 100%;
+            Width:80%;  
+            margin-top: 200px;
+            justify-self: center;
+            align-self: center;
+            font-size: 20pt;
+        }
+        z-index: 1;
+    } 
 }
