@@ -21,6 +21,9 @@ projectsModal.style.display = "none";
 
 /* THIS SECTION IS FOR THE NAVIGATION
 --------------------------------------------------------------------- */
+let widthMatch = window.matchMedia("(min-width: 500px)");
+if(!widthMatch.matches)
+{
 aboutMeBox.addEventListener('mouseenter', () =>
 {
     aboutMeModal.style.display = "flex"
@@ -49,8 +52,8 @@ modalMouseArea.addEventListener('mouseleave', () =>
     socialModal.style.display = "none"
     projectsModal.style.display = "none"
 })
+}
 
-let widthMatch = window.matchMedia("(min-width: 500px)");
 if(widthMatch.matches)
 {
     aboutMeBox.addEventListener('click', () =>

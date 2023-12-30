@@ -55,6 +55,7 @@ const gameDisplay = $('.game')
 const christmasPlayGame = $('#christmas')
 const summerPlayGame = $('#summer')
 const sportsPlayGame = $('#sports')
+const cocinaPlayGame = $('#cocina')
 const rules = $('#rulesButton')
 const keyBoardBtn = $('.keyboard')
 const playAgain = $('#Yes')
@@ -214,6 +215,28 @@ summerPlayGame.addEventListener('click', () =>
 }
 )
 
+cocinaPlayGame.addEventListener('click', () => 
+{
+    popup.style.display="none"
+    results.style.display="none";
+    rulesContainer.style.display = "none"
+    gameDisplay.style.display = "grid";
+    for(let i = 0 ; i<=computerLetter.length-1; i ++)
+    {
+        let tempId = document.getElementById(computerLetter[i].id)
+        tempId.style.display="none"
+    }
+    grabWord(cocinaChoices);
+    console.clear();
+    for(let i = 0 ; i<=computerWord.length-1 ; i ++)
+    {
+        let tempId = document.getElementById(computerLetter[i].id)
+        computerLetter[i].innerText="_";
+        tempId.style.display="grid"
+        console.log(computerWord[i]);
+    }
+}
+)
 
 rules.addEventListener('click', () => 
 {
@@ -331,16 +354,15 @@ keyBoardBtn.addEventListener('click', function(e)
 
 playAgain.addEventListener('click', () => 
 {
-    popup.style.display="none"
+    popup.style.display="grid";
     results.style.display="none";
-    rulesContainer.style.display = "none"
-    gameDisplay.style.display = "grid";
+    rulesContainer.style.display = "grid";
+    gameDisplay.style.display = "none";
     for(let i = 0 ; i<=computerLetter.length-1; i ++)
     {
         let tempId = document.getElementById(computerLetter[i].id)
         tempId.style.display="none"
     }
-    grabWord(christmasChoices);
     console.clear();
     for(let i = 0 ; i<=computerWord.length-1 ; i ++)
     {
@@ -453,3 +475,4 @@ submit.addEventListener('click', () =>
 const christmasChoices= ["santa","presents","coal","snow","sledding","cookies","snowman","reindeer","chestnuts","ornaments"];
 const sportsChoices= ["basketball","Soccer","football","baseball","tennis","hockey","volleyball","rugby","boxing","cricket"];
 const summerChoices= ["beach","fishing","boating","vacation","sunburn","surfing","sandals","pool","sand","bonfire","sunset"];
+const cocinaChoices= ["refrigador","plato","tenedor","cuchillo","taza","copa","olla","sarten","abrelatas","cuenco","licuadora"];
