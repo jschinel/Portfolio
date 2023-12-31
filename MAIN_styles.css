@@ -274,7 +274,7 @@ aside{
         }
         img
         {
-            scale: 40%;
+            scale: 100%;
             border-radius: 30%;
         }
         #status
@@ -288,7 +288,7 @@ aside{
                 width: 100%;
                 row-gap: 5px;
                 justify-content: center;
-                font-size: 5pt;
+                font-size: 10pt;
             }
             button{
                 height: 3dvh;
@@ -308,7 +308,7 @@ aside{
             margin-top: 200px;
             justify-self: center;
             align-self: center;
-            font-size: 10pt;
+            font-size: 20pt;
         }
         z-index: 1;
     } 

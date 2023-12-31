@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin:0;
     padding:0;
-    background-color: #f8fafa;
+    background-color: #575752;
 }
 
 
@@ -15,9 +15,10 @@
 {
     display: block;
     position:absolute;
-    width: 50px;
+    width: 75px;
     height: 50px;
     background-color: white;
+    border-radius: 10%;
     z-index: 1;
 }
 
@@ -34,6 +35,7 @@
     justify-content: center;
     justify-items: center;
     align-items: center;
+    background-color: white;
     .rulesContainer
     {
         grid-column: 1 / 3;
@@ -198,6 +200,7 @@
         grid-auto-flow: row;
         button
         {
+            background-color: white;
             justify-content: center;
             align-items: center;
         }
@@ -220,8 +223,10 @@
         font-size: 500%;
         grid-auto-flow: column;
         justify-items: center;
+        background-color: white;
         li
         {
+            background-color: white;
             justify-content: center;
             align-items: center;
         }
@@ -237,18 +242,19 @@
         grid-column: 4 / 8;
         grid-row: 1 / span 3;
         justify-content: center;
-        min-height:572px;
-        min-width:512px;
+        height:612px;
+        width:743px;
         border: 5px solid black;
         #hangmanContainer
         {
             grid-template-columns: 300px 1fr 1fr 1fr;
             grid-template-rows: 50px 1fr 1fr 1fr;
-            min-height:572px;
-            min-width:512px;
+            min-height:100%;
+            min-width:100%;
             display: grid;
             justify-items: center;
             align-items: center;
+            background-color: white;
             border: 5px solid black;
                 #head
                 {
@@ -372,13 +378,13 @@
         grid-row: 1 / span 3; 
         justify-items: center;
         align-items: center;
-        border: 5px solid black;
         background-color: #575752;
 
         p{
             display: grid;
             background-color: #575752;
             font-size: 50px;
+            text-decoration: underline 5px solid black;
         }
 
     }
@@ -389,7 +395,6 @@
         grid-row: 1 / span 3;
         justify-items: center;
         align-items: center; 
-        border: 5px solid black;
         background-color: #575752;
         p{
             font-size: 30px;
@@ -400,7 +405,8 @@
         input
         {
             height: 20%;
-            font-size: 100%;
+            font-size: 20pt;
+            background-color: white;
         }
         button
         {
@@ -408,6 +414,534 @@
             font-size: 100%;
             width:20%;
             justify-self: top;
+            background-color: white;
+            border-radius: 10%;
+            margin-top: -50%;
         }
     }
+}
+
+@media screen and (max-width: 1450px)
+{
+/*_________________THIS CREATES THE GRID FOR THE HANGMAN GAME________________*/
+.game
+{
+    display: grid;
+    min-height: 100dvh;
+    min-width:100dvw;
+    max-height: 100dvh;
+    max-width:100dvw;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    column-gap:  5px solid black;
+    border: 1px solid blue;
+    z-index: 0;   
+
+
+
+ /*_________________THIS CREATES THE KEYBOARD FOR THE HANGMAN GAME________________*/
+
+
+
+
+    .keyboard
+    {
+        display: grid;
+        grid-column:1 /span 10;
+        grid-row: 5 / 6;
+        grid-template-columns: repeat(9,1fr);
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-auto-flow: row;
+        button
+        {
+            background-color: white;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+
+
+
+ /*_________________DISPLAYS THE COMPUTERS CHOICE________________*/
+
+
+
+
+
+    #computerChoice
+    {
+        display: grid;
+        grid-column:1 /span 10;
+        grid-row: 4;
+        font-size: 500%;
+        grid-auto-flow: column;
+        justify-items: center;
+        background-color: white;
+        li
+        {
+            background-color: white;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+
+ /*_________________DISPLAYS THE HANGMAN AND PLATFORM IMAGE________________*/
+ 
+
+    #hangman
+    {
+        grid-column: 4 / 8;
+        grid-row: 1 / span 3;
+        justify-content: center;
+        height:612px;
+        width:743px;
+        border: 5px solid black;
+        #hangmanContainer
+        {
+            grid-template-columns: 300px 1fr 1fr 1fr;
+            grid-template-rows: 50px 1fr 1fr 1fr;
+            min-height:100%;
+            min-width:100%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            background-color: white;
+            border: 5px solid black;
+                #head
+                {
+                    grid-column: 1;
+                    grid-row: 2 / 5;
+                    border: 5px solid red;
+                    width: 100px;
+                    height: 100px;
+                    background: red;
+                    border-radius: 50%;
+                    margin: 0px 0px 350px 0px;
+                }
+                #torso
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    width: 10px;
+                    height: 200px;
+                    background: red;
+                    margin: 0px 0px 75px 0px;
+                }
+                #rightArm
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 120px;
+                    background: red;
+                    transform: skew(30deg);
+                    margin: 0px 0px 60px 75px;
+                }
+                #leftArm
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 120px;
+                    background: red;
+                    transform: skew(-30deg);
+                    margin: 0px 75px 60px 0px;
+                }
+                #rightLeg
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 150px;
+                    background: red;
+                    transform: skew(30deg);
+                    margin: 300px 0px 60px 85px;
+                }  
+                #leftLeg
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 150px;
+                    background: red;
+                    transform: skew(-30deg);
+                    margin: 300px 85px 60px 0px;
+                }
+                #rope
+                {
+
+                    grid-column: 1;
+                    grid-row: 1 / 3;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 150px;
+                    background: red;
+                    margin: 00px 0px 40px 0px;
+                }
+                #topBeam
+                {
+                    grid-column:1/4;
+                    grid-row:1;
+                    width: 300px;
+                    height: 10px;
+                    background: red;
+                    margin: -20px 10px 0px 0px;
+                }
+                #middleBeam
+                {
+                    grid-column: 2;
+                    grid-row:1 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 550px;
+                    background: red;
+                    margin: 0px 0px -5px 80px;
+                }
+                #bottomBeam
+                {
+                    grid-column: 1 / 4;
+                    grid-row:1 / 5;
+                    border: 5px solid red;
+                    width: 250px;
+                    height: 10px;
+                    background: red;
+                    margin: 550px 0px 0px 250px;
+                }
+            }
+
+        }
+        
+
+
+/*_________________CREATES THE Filler Sides________________*/
+
+
+
+
+    #LeftSide
+    {
+        display: grid;
+        grid-column:1 /span 3;
+        grid-row: 1 / span 3; 
+        justify-items: center;
+        align-items: center;
+        background-color: #575752;
+
+        p{
+            display: grid;
+            background-color: #575752;
+            font-size: 35px;
+            text-decoration: underline 5px solid black;
+        }
+
+    }
+    #RightSide
+    {
+        display: grid;
+        grid-column:8 /span 10;
+        grid-row: 1 / span 3;
+        justify-items: center;
+        align-items: center; 
+        background-color: #575752;
+        p{
+            font-size: 25px;
+            justify-content: center;
+            align-content: center;
+            background-color: #575752;
+        }
+        input
+        {
+            height: 20%;
+            width:50%;
+            font-size: 20pt;
+            background-color: white;
+        }
+        button
+        {
+            height: 20%;
+            font-size: 100%;
+            width:30%;
+            justify-self: top;
+            background-color: white;
+            border-radius: 10%;
+            margin-top: -80%;
+        }
+    }
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1210px)
+{
+/*_________________THIS CREATES THE GRID FOR THE HANGMAN GAME________________*/
+.game
+{
+    display: grid;
+    min-height: 100dvh;
+    min-width:100dvw;
+    max-height: 100dvh;
+    max-width:100dvw;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap:  5px solid black;
+    border: 1px solid blue;
+    z-index: 0;   
+
+
+
+ /*_________________THIS CREATES THE KEYBOARD FOR THE HANGMAN GAME________________*/
+
+
+
+
+    .keyboard
+    {
+        display: grid;
+        grid-column:1 /span 10;
+        grid-row: 6 /7;
+        grid-template-columns: repeat(9,1fr);
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-auto-flow: row;
+        button
+        {
+            background-color: white;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+
+
+
+ /*_________________DISPLAYS THE COMPUTERS CHOICE________________*/
+
+
+
+
+
+    #computerChoice
+    {
+        display: grid;
+        grid-column:1 /span 10;
+        grid-row: 5;
+        font-size: 500%;
+        grid-auto-flow: column;
+        justify-items: center;
+        background-color: white;
+        height:100px;
+        margin-top: 15%;
+        li
+        {
+            background-color: white;
+            justify-content: center;
+            align-items: center;
+        }
+
+    }
+
+
+ /*_________________DISPLAYS THE HANGMAN AND PLATFORM IMAGE________________*/
+ 
+
+    #hangman
+    {
+        grid-column: 4 / 8;
+        grid-row: 1 / span 3;
+        justify-content: center;
+        height:612px;
+        width:743px;
+        border: 5px solid black;
+        #hangmanContainer
+        {
+            grid-template-columns: 300px 1fr 1fr 1fr;
+            grid-template-rows: 50px 1fr 1fr 1fr;
+            min-height:100%;
+            min-width:100%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            background-color: white;
+            border: 5px solid black;
+                #head
+                {
+                    grid-column: 1;
+                    grid-row: 2 / 5;
+                    border: 5px solid red;
+                    width: 100px;
+                    height: 100px;
+                    background: red;
+                    border-radius: 50%;
+                    margin: 0px 0px 350px 0px;
+                }
+                #torso
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    width: 10px;
+                    height: 200px;
+                    background: red;
+                    margin: 0px 0px 75px 0px;
+                }
+                #rightArm
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 120px;
+                    background: red;
+                    transform: skew(30deg);
+                    margin: 0px 0px 60px 75px;
+                }
+                #leftArm
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 120px;
+                    background: red;
+                    transform: skew(-30deg);
+                    margin: 0px 75px 60px 0px;
+                }
+                #rightLeg
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 150px;
+                    background: red;
+                    transform: skew(30deg);
+                    margin: 300px 0px 60px 85px;
+                }  
+                #leftLeg
+                {
+                    grid-column: 1;
+                    grid-row:2 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 150px;
+                    background: red;
+                    transform: skew(-30deg);
+                    margin: 300px 85px 60px 0px;
+                }
+                #rope
+                {
+
+                    grid-column: 1;
+                    grid-row: 1 / 3;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 150px;
+                    background: red;
+                    margin: 00px 0px 40px 0px;
+                }
+                #topBeam
+                {
+                    grid-column:1/4;
+                    grid-row:1;
+                    width: 300px;
+                    height: 10px;
+                    background: red;
+                    margin: -20px 10px 0px 0px;
+                }
+                #middleBeam
+                {
+                    grid-column: 2;
+                    grid-row:1 / 5;
+                    border: 5px solid red;
+                    width: 10px;
+                    height: 550px;
+                    background: red;
+                    margin: 0px 0px -5px 80px;
+                }
+                #bottomBeam
+                {
+                    grid-column: 1 / 4;
+                    grid-row:1 / 5;
+                    border: 5px solid red;
+                    width: 250px;
+                    height: 10px;
+                    background: red;
+                    margin: 550px 0px 0px 250px;
+                }
+        }
+
+    }
+        
+
+
+/*_________________CREATES THE Filler Sides________________*/
+
+
+
+
+    #LeftSide
+    {
+        display: grid;
+        grid-column:1 /span 5;
+        grid-row: 4; 
+        justify-items: center;
+        align-items: center;
+        background-color: #575752;
+
+        p{
+            display: grid;
+            background-color: #575752;
+            font-size: 30px;
+            text-decoration: underline 5px solid black;
+        }
+
+    }
+    #RightSide
+    {
+        display: grid;
+        grid-column:6 /span 10;
+        grid-row: 4;
+        justify-items: center;
+        align-items: center; 
+        background-color: #575752;
+        p{
+            font-size: 25px;
+            justify-self: center;
+            align-self: center;
+            background-color: #575752;
+        }
+        input
+        {
+            justify-self: center;
+            align-self: center;
+            height: 60%;
+            width:50%;
+            font-size: 20pt;
+            background-color: white;
+        }
+        button
+        {
+            justify-self: center;
+            align-self: center;
+            height: 40%;
+            font-size: 100%;
+            width:50%;
+            justify-self: top;
+            background-color: white;
+            border-radius: 10%;
+            margin-top: 10%;
+        }
+    }
+}
 }
