@@ -214,3 +214,35 @@ aside{
             }
         }
 }
+@media screen and (max-height: 900px)
+{
+    .Top{
+            justify-content: center;
+            #history
+            {
+                display: none;
+            }
+            img
+            {
+                scale:60%;
+            }
+            #status{
+                button{
+                    font-size: 60%;    
+                }
+
+            }
+        }
+}
+@media screen and (max-height: 600px)
+{
+    .Top
+    {
+        #status
+        {
+            p{
+            font-size: 80%;                    
+            }
+        }
+    }
+}
