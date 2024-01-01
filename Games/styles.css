@@ -5,8 +5,6 @@
     background-color: #575752;
 }
 
-
-
 /*_________________Home Button to Overlay the Screens________________*/
 
 
@@ -43,8 +41,8 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        height:50dvh;
-        width:50dvw;
+        height:60dvh;
+        width:60dvw;
         justify-content: center;
         h1
         {
@@ -58,6 +56,7 @@
             align-items: center;
         } 
         p{
+            overflow-y:scroll;
             display: inherit;
             grid-column: 1 /span 5;
             grid-row: 2/2;
@@ -66,17 +65,20 @@
             align-items: center;
             text-justify: center;
             justify-self: center;
-            font-size: 100%;
+            font-size: 150%;
+            padding: 5%;
+            line-height: 200%;
         }
         #choices
         {
             display: inherit;
             grid-column: 1 / span 5;
-            grid-row: 3 /4;
+            grid-row: 3 / 4;
             grid-auto-flow: column;
             justify-items: center;
             align-items: center;
             background-color: #575752;
+            margin-bottom: 10%;
             :nth-child(1)   
             {
                 background-color: hsl(60, 21%, 68%);
@@ -84,6 +86,7 @@
                 padding: 5px;
                 width: 10dvw;
                 border-radius: 10%;
+                font-size: 150%;
             }
             :nth-child(2)
             {
@@ -92,6 +95,7 @@
                 padding: 5px;
                 width: 10dvw;
                 border-radius: 10%;
+                font-size: 150%;
             }
             :nth-child(3)
             {
@@ -101,6 +105,7 @@
                 padding: 5px;
                 width: 10dvw;
                 border-radius: 10%;
+                font-size: 150%;
 
             }
             :nth-child(4)
@@ -111,6 +116,45 @@
                 padding: 5px;
                 width: 10dvw;
                 border-radius: 10%;
+                font-size: 150%;
+            }
+            #resume
+            {
+                display: none;
+                position:absolute;
+                margin: 10% 0% 0% 0%;
+                background-color: rgb(239, 239, 235);
+                color:black;
+                padding: 5px;
+                width: 10dvw;
+                border-radius: 10%;
+                font-size: 180%;
+            }
+            #english
+            {
+                display: grid;
+                position:absolute;
+                top: 22%;
+                left: 22%;
+                background-color: rgb(239, 239, 235);
+                color:black;
+                padding: 5px;
+                width: 10dvw;
+                border-radius: 10%;
+                font-size: 180%;
+            }
+            #spanish
+            {
+                display: grid;
+                position:absolute;
+                top: 22%;
+                right: 21%;
+                background-color: rgb(239, 239, 235);
+                color:black;
+                padding: 5px;
+                width: 10dvw;
+                border-radius: 10%;
+                font-size: 180%;
             }
         }
     }
@@ -172,7 +216,7 @@
 /*_________________THIS CREATES THE GRID FOR THE HANGMAN GAME________________*/
 .game
 {
-    display: grid;
+    display: none;
     min-height: 100dvh;
     min-width:100dvw;
     max-height: 100dvh;

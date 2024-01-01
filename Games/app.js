@@ -8,12 +8,43 @@ let correctNum=0;
 let correct = [];
 let wrong = [];
 let tempWholeWord = "";
+let language = 0;
+
+
+/* Create a function to change display for winning
+--------------------------------------------------------------------- */
+function displayWin(){
+    resultsText.innerText="LOOKS LIKE YOU WON!";
+    popup.style.display="grid";
+    results.style.display="grid";
+    rulesContainer.style.display = "none"
+    gameDisplay.style.display = "none";
+    resumeGame.style.display = "none"
+}
+/* Create a function to change display for losing
+--------------------------------------------------------------------- */
+function displayLose(){
+    resultsText.innerText="LOOKS LIKE YOU LOST";
+    popup.style.display="grid";
+    results.style.display="grid";
+    rulesContainer.style.display = "none"
+    gameDisplay.style.display = "none";
+    resumeGame.style.display = "none"
+}
+
+/* Create a function to change display for playing game
+--------------------------------------------------------------------- */
+function displayGame(){
+    popup.style.display="none";
+    results.style.display="none";
+    rulesContainer.style.display = "none"
+    gameDisplay.style.display = "grid";
+    resumeGame.style.display = "none"
+}
 
 
 /* Create a function to reset buttons after game is over
 --------------------------------------------------------------------- */
-
-
 function gameReset(correctArray,wrongArray) {
     if(wrongArray.length!=0)
     {
@@ -108,13 +139,18 @@ const gameDisplay = $('.game')
 const christmasPlayGame = $('#christmas')
 const summerPlayGame = $('#summer')
 const sportsPlayGame = $('#sports')
-const cocinaPlayGame = $('#cocina')
+const kitchenPlayGame = $('#cocina')
 const rules = $('#rulesButton')
 const keyBoardBtn = $('.keyboard')
 const playAgain = $('#Yes')
 const resultsText = $('#resultsText')
 const wholeword = $("#wholeword")
 const submit = $("#submit")
+const resumeGame = $("#resume")
+const spanish = $("#spanish")
+const english = $("#english")
+const rulesHeader = $("#rules")
+const rulesText = $("#rulesText")
 
 
 /* All HTML elements we need to manipulate computers choice section
@@ -200,53 +236,76 @@ const hangman= [head,torso,leftArm,rightArm,leftLeg,rightLeg];
 --------------------------------------------------------------------------------------------------*/
 christmasPlayGame.addEventListener('click', () => 
 {
-    popup.style.display="none"
-    results.style.display="none";
-    rulesContainer.style.display = "none"
-    gameDisplay.style.display = "grid";
-    grabWord(christmasChoices);
+    displayGame();
+    if(language==1)
+    {
+        grabWord(christmasChoicesSpanish);
+    }
+    else
+    {
+        grabWord(christmasChoices);        
+    }
 }
 )
 
 
 sportsPlayGame.addEventListener('click', () => 
 {
-    popup.style.display="none"
-    results.style.display="none";
-    rulesContainer.style.display = "none"
-    gameDisplay.style.display = "grid";
-    grabWord(sportsChoices);
+    displayGame();
+    if(language==1)
+    {
+        grabWord(sportsChoicesSpanish);
+    }
+    else
+    {
+        grabWord(sportsChoices);        
+    }
 }
 )
 
 summerPlayGame.addEventListener('click', () => 
 {
-    popup.style.display="none"
-    results.style.display="none";
-    rulesContainer.style.display = "none"
-    gameDisplay.style.display = "grid";
-    grabWord(summerChoices);
+    displayGame()
+    if(language==1)
+    {
+        grabWord(summerChoicesSpanish);
+    }
+    else
+    {
+        grabWord(summerChoices);        
+    }
 }
 )
 
-cocinaPlayGame.addEventListener('click', () => 
+kitchenPlayGame.addEventListener('click', () => 
 {
-    popup.style.display="none"
-    results.style.display="none";
-    rulesContainer.style.display = "none"
-    gameDisplay.style.display = "grid";
-    grabWord(cocinaChoices);
+    displayGame();
+    if(language==1)
+    {
+        grabWord(kitchenChoicesSpanish);
+    }
+    else
+    {
+        grabWord(kitchenChoices);        
+    }
 }
 )
 
 rules.addEventListener('click', () => 
 {
-    popup.style.display="grid"
+    popup.style.display="grid";
     results.style.display="none";
-    rulesContainer.style.display ="grid"
+    rulesContainer.style.display ="grid";
     gameDisplay.style.display ="none";
+    resumeGame.style.display = "grid";
 }
 )
+resumeGame.addEventListener('click', () => 
+{
+    displayGame();
+}
+)
+
 keyBoardBtn.addEventListener('click', () =>
 {
     wholeword.value="";
@@ -266,11 +325,7 @@ keyBoardBtn.addEventListener('click', () =>
             if(correctIndex==computerWord.length)
             {
                 keyBoardBtn.id="";
-                resultsText.innerText="WOW LOOKS LIKE YOU WON!!";
-                popup.style.display="grid";
-                results.style.display="grid";
-                rulesContainer.style.display = "none";
-                gameDisplay.style.display = "none";
+                displayWin();
                 gameReset(correct,wrong);
 
             }
@@ -283,15 +338,11 @@ keyBoardBtn.addEventListener('click', () =>
             wrongLetters.innerText=wrong;
             keyBoardBtn.id="";
             correctNum=0;
-            hangman[wrongIndex].style.display="grid"
-            wrongIndex++
+            hangman[wrongIndex].style.display="grid";
+            wrongIndex++;
             if(wrongIndex==hangman.length)
             {
-                resultsText.innerText="LOOKS LIKE YOU LOST";
-                popup.style.display="grid";
-                results.style.display="grid";
-                rulesContainer.style.display = "none"
-                gameDisplay.style.display = "none";
+                displayLose();
                 gameReset(correct,wrong);
             }
         }
@@ -304,20 +355,7 @@ playAgain.addEventListener('click', () =>
     results.style.display="none";
     rulesContainer.style.display = "grid";
     gameDisplay.style.display = "none";
-    for(let i = 0 ; i<=computerLetter.length-1; i ++)
-    {
-        let tempId = document.getElementById(computerLetter[i].id)
-        tempId.style.display="none"
-    }
-    console.clear();
-    for(let i = 0 ; i<=computerWord.length-1 ; i ++)
-    {
-        let tempId = document.getElementById(computerLetter[i].id)
-        computerLetter[i].innerText="_";
-        tempId.style.display="grid"
-        console.log(computerWord[i]);
-    }
-    wholeword.value="";
+    resumeGame.style.display = "none";
 }
 )
 
@@ -333,26 +371,18 @@ submit.addEventListener('click', () =>
         if(tempWholeWord==computerWord)
         {
             keyBoardBtn.id="";
-            resultsText.innerText="WOW LOOKS LIKE YOU WON!!";
-            popup.style.display="grid";
-            results.style.display="grid";
-            rulesContainer.style.display = "none"
-            gameDisplay.style.display = "none";
-            gameReset(correct,wrong)
+            displayWin();
+            gameReset(correct,wrong);
         }
         if(tempWholeWord!=computerWord)
         {
-            hangman[wrongIndex].style.display="grid"
-            wrong[wrongIndex]=tempWholeWord
+            hangman[wrongIndex].style.display="grid";
+            wrong[wrongIndex]=tempWholeWord;
             wrongLetters.innerText=wrong;  
-            wrongIndex++
+            wrongIndex++;
             if(wrongIndex==hangman.length)
             {
-                resultsText.innerText="LOOKS LIKE YOU LOST";
-                popup.style.display="grid";
-                results.style.display="grid";
-                rulesContainer.style.display = "none"
-                gameDisplay.style.display = "none";
+                displayLose();
                 gameReset(correct,wrong)
             }
         }
@@ -361,9 +391,67 @@ submit.addEventListener('click', () =>
 } )
 
 
-/* THIS SECTION CONTAINS THE ARRAY OF COMPUTER CHOICES
+/* THIS SECTION CONVERTS THE LANGUGE
+--------------------------------------------------------------------- */
+spanish.addEventListener('click', () => 
+{
+    rulesHeader.innerText=`REGLAS`;
+    rulesText.innerHTML=`Una vez que se selecciona una categoría a continuación, se elegirá <b>una palabra aleatoria<b>
+    </b>
+    Usa el teclado en pantalla para seleccionar la letra que crees que contiene <b>la palabra<b>
+    </b>
+    Si la letra que ha seleccionado es correcta, se mostrará<b> 
+    </b>
+    Si es incorrecto, aparecerá en el lado izquierdo en "Letras incorrectas" Y se dibujará una parte del ahorcado.<b>
+    </b>
+    ¡Solo tienes 6 oportunidades! En cualquier momento que creas que sabes la respuesta, puedes escribirla en el lado derecho. ¡Asegúrate de enviarlo!<b>
+    </b>
+
+¡¡Buena suerte!!<b></b>Elija su categoría a continuación`;
+    christmasPlayGame.innerText=`Artículos de Navidad`;
+    sportsPlayGame.innerText=`Artículos deportivos`
+    summerPlayGame.innerText=`Artículos de verano`;
+    kitchenPlayGame.innerText='Artículos de cocina';
+    spanish.innerText="Espanol";
+    english.innerText="Ingles";
+    language = 1;
+}
+)
+english.addEventListener('click', () => 
+{
+    rulesHeader.innerText="RULES";
+    rulesText.innerHTML=`Once a category is selected below a random word will be chosen<b>
+    </b>
+    Use the on screen keyboard to select the letter that you think the word conatains<b>
+    </b>
+    If the letter you have selected is correct it will be be displayed 
+    </b>
+    If its incorrect it will be listed on the left hand side under "Incorrect Letters" AND a piece of the hangman will be drawn on.<b>
+    </b>
+    You only have 6 chances! At any time you think you know the answer you can type it in on the right hand side. Make sure to submit!<B>
+    </b>
+
+    Good Luck!!<b></b>Choose your category below`;
+    christmasPlayGame.innerText=`Christmas Items`;
+    sportsPlayGame.innerText=`Sports Items`;
+    summerPlayGame.innerText=`Summer Items`;
+    kitchenPlayGame.innerText=`Kitchen Items`;
+    spanish.innerText="Spanish";
+    english.innerText="English";
+    language = 0;
+}
+)
+/* THIS SECTION CONTAINS THE ARRAY OF COMPUTER ENGLISH CHOICES
 --------------------------------------------------------------------- */
 const christmasChoices= ["santa","presents","coal","snow","sledding","cookies","snowman","reindeer","chestnuts","ornaments"];
 const sportsChoices= ["basketball","Soccer","football","baseball","tennis","hockey","volleyball","rugby","boxing","cricket"];
 const summerChoices= ["beach","fishing","boating","vacation","sunburn","surfing","sandals","pool","sand","bonfire","sunset"];
-const cocinaChoices= ["refrigador","plato","tenedor","cuchillo","taza","copa","olla","sarten","abrelatas","cuenco","licuadora"];
+const kitchenChoices=["Refrigerator","Plate","Fork","Knife","Cup","Cup","Pot","Pan","Can Opener","Bowl","Blender"]
+
+
+/* THIS SECTION CONTAINS THE ARRAY OF COMPUTER SPANISH CHOICES
+--------------------------------------------------------------------- */
+const christmasChoicesSpanish= ["Papá Noel","Regalos","Carbón","Nieve","Trineo","Galletas","Muñeco de nieve","Renos","Castañas","Adornos"];
+const sportsChoicesSpanish= ["baloncesto","maraton","fútbol","béisbol","tenis","hockey","voleibol","rugby","boxeo","cricket"];
+const summerChoicesSpanish= ["playa","pesca","paseos en bote","vacaciones","quemaduras solares","surf","sandalias","piscina","arena","hoguera","puesta de sol"];
+const kitchenChoicesSpanish= ["refrigador","plato","tenedor","cuchillo","taza","copa","olla","sarten","abrelatas","cuenco","licuadora"];
