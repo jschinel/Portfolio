@@ -127,29 +127,38 @@
 .Bottom{
     display: grid;
     grid-auto-flow: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: rgb(88, 128, 163);
     height:100dvh;
     width:100dvw;
     #homeInfo{       
         height: 500px;
-        Width:40%;  
+        Width:80%;  
         justify-self: center;
         align-self: Top;
-        margin-top: 10%;
+        margin-top: 15%;
         font-size: 20pt;
         background-color: #7aa1b1;
+        padding: 5%;
+        border-radius: 10%;
+        color: white;
+        background-image: url("/Project1/images/winter.JPG");
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     #hobbie{
         height: 500px;
-        Width:40%;  
+        Width:80%;  
         justify-self: center;
         align-self: Top;
-        margin-top: 10%;
+        margin-top: 15%;
         font-size: 20pt;
         background-color: #7aa1b1;
+        padding: 5%;
+        border-radius: 10%;
+        color: black;
+        background-image: url("https://th.bing.com/th/id/R.f95f28e048a4be82c32c2a23b2a2d761?rik=m4aPJ5EKHuRgtA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-zStAk-YmtRY%2fTxCfFlXSdiI%2fAAAAAAAAM20%2fGl67IBLTUm8%2fs1600%2femerging%2bautumn%2bcolors%2bpse.jpg&ehk=%2bXsAh%2f9P6eR1QNMmwZh%2b3ufqOfL9o8MPbtJ3sgKHd28%3d&risl=&pid=ImgRaw&r=0");
     }
-    z-index: 1;
 }
 
 aside{
@@ -222,4 +231,90 @@ aside{
                 background-color: black;
             }
         }
+}
+@media screen and (max-height: 900px)
+{
+    .Top{
+            justify-content: center;
+            #history
+            {
+                display: none;
+            }
+            img
+            {
+                scale:60%;
+            }
+            #status{
+                button{
+                    font-size: 60%;    
+                }
+
+            }
+        }
+}
+@media screen and (max-height: 600px)
+{
+    body
+    {
+        overflow-y:scroll;
+        ::-webkit-scrollbar{
+            width:2em;
+        }
+        ::-webkit-scrollbar-track{
+            background-color: aliceblue;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: black;
+        }
+    }
+    .Top
+    {
+        height:271px;
+        #status{
+            button{
+                height:20px;
+            }
+        }
+    }
+    .Middle
+    {
+        height:30px;
+    }
+    .Bottom{
+        height:600px;
+    }
+    aside{
+        position: absolute;
+        z-index: 2;
+        #modalAboutMe
+        {   
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
+            }
+        }
+        #modalSocial
+        {
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
+            }
+        }
+        #modalProjects
+        {
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
+            }
+        }
+    }
 }

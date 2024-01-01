@@ -20,6 +20,7 @@
     justify-content: space-between;
     align-items: center;
     height:45dvh;
+    width: 100dvw;
     background-color: rgb(88, 128, 163);
     padding: 10px;
     column-gap: 10px;
@@ -95,6 +96,7 @@
     font-size: 20pt;   
     color:white;
     height:5dvh;
+    width: 100dvw;
     #Aboutme
     {
         display: flex;
@@ -132,37 +134,65 @@
     height:100dvh;
     width:100dvw;
     #controls{
-        height: 200px;
-        Width:100%; 
+        
+        height: fit-content;
+        Width: 80%;
+        justify-self: center;
         align-self: Top;
-        margin-top: 10%;
-        margin-right: 50%;
-        font-size: 20pt;
+        margin-top: 25%;
+        font-size: 15pt;
         background-color: white;
+        padding: 5%;
+        border-radius: 10%;
+        text-wrap: wrap;
+        b{
+            text-decoration: underline solid black;
+        }
     }
     #electricaltech{
-        height: 200px;
-        Width:100%; 
+        height: fit-content;
+        Width: 80%;
+        justify-self: center;
         align-self: Top;
-        margin-top: 10%;;
-        font-size: 20pt;
+        margin-top: 25%;
+        font-size: 15pt;
         background-color: white;
+        padding: 5%;
+        border-radius: 10%;
+        text-wrap: wrap;
+        b{
+            text-decoration: underline solid black;
+        }
     }
     #electricaleng{
-        height: 200px;
-        Width:100%;  
+        height: fit-content;
+        Width: 80%;
+        justify-self: center;
         align-self: Top;
-        margin-top: 10%;;
-        font-size: 20pt;
+        margin-top: 25%;
+        font-size: 15pt;
         background-color: white;
+        padding: 5%;
+        border-radius: 10%;
+        text-wrap: wrap;
+        b{
+            text-decoration: underline solid black;
+        }
     }
     #softwaredevelop{
-        height: 200px;
-        Width:100%; 
+        height: fit-content;
+        Width: 80%;
+        justify-self: center;
         align-self: Top;
-        margin-top: 10%;;
-        font-size: 20pt;
+        margin-top: 25%;
+        font-size: 15pt;
         background-color: white;
+        padding: 5%;
+        border-radius: 10%;
+        text-wrap: wrap;
+        b{
+            text-decoration: underline solid black;
+        }
     }
     z-index: 1;
 }
@@ -237,4 +267,90 @@ aside{
                 background-color: black;
             }
         }
+}
+@media screen and (max-height: 900px)
+{
+    .Top{
+            justify-content: center;
+            #history
+            {
+                display: none;
+            }
+            img
+            {
+                scale:60%;
+            }
+            #status{
+                button{
+                    font-size: 60%;    
+                }
+
+            }
+        }
+}
+@media screen and (max-height: 600px)
+{
+    body
+    {
+        overflow-y:scroll;
+        ::-webkit-scrollbar{
+            width:2em;
+        }
+        ::-webkit-scrollbar-track{
+            background-color: aliceblue;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: black;
+        }
+    }
+    .Top
+    {
+        height:271px;
+        #status{
+            button{
+                height:20px;
+            }
+        }
+    }
+    .Middle
+    {
+        height:30px;
+    }
+    .Bottom{
+        height:600px;
+    }
+    aside{
+        position: absolute;
+        z-index: 2;
+        #modalAboutMe
+        {   
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
+            }
+        }
+        #modalSocial
+        {
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
+            }
+        }
+        #modalProjects
+        {
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
+            }
+        }
+    }
 }

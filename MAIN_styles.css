@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     height:45dvh;
+    width:100dvw;
     background-color: rgb(88, 128, 163);
     padding: 10px;
     column-gap: 10px;
@@ -96,6 +97,7 @@
     font-size: 20pt;   
     color:white;
     height:5dvh;
+    width:100dvw;
     #Aboutme
     {
         display: flex;
@@ -236,12 +238,66 @@ aside{
 }
 @media screen and (max-height: 600px)
 {
+    body
+    {
+        overflow-y:scroll;
+        ::-webkit-scrollbar{
+            width:2em;
+        }
+        ::-webkit-scrollbar-track{
+            background-color: aliceblue;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: black;
+        }
+    }
     .Top
     {
-        #status
+        height:271px;
+        #status{
+            button{
+                height:20px;
+            }
+        }
+    }
+    .Middle
+    {
+        height:30px;
+    }
+    .Bottom{
+        height:600px;
+    }
+    aside{
+        position: absolute;
+        z-index: 2;
+        #modalAboutMe
+        {   
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
+            }
+        }
+        #modalSocial
         {
-            p{
-            font-size: 80%;                    
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
+            }
+        }
+        #modalProjects
+        {
+            display: flex;
+            flex-flow: column;
+            width: 33.3dvw;
+            button{
+                height: 30px;
+                font-size: 100%;
             }
         }
     }
