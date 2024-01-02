@@ -220,7 +220,14 @@ aside{
     .Bottom{
         width:900px;
     }
-    
+    .modals
+    {
+
+            button
+            {
+                width:300px; 
+            } 
+    }  
 }
 @media screen and (max-width: 650px)
 {
@@ -259,19 +266,6 @@ aside{
 }
 @media screen and (max-height: 600px)
 {
-    body
-    {
-        overflow-y:scroll;
-        ::-webkit-scrollbar{
-            width:2em;
-        }
-        ::-webkit-scrollbar-track{
-            background-color: aliceblue;
-        }
-        ::-webkit-scrollbar-thumb{
-            background-color: black;
-        }
-    }
     .Top
     {
         height:271px;

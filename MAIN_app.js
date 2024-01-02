@@ -35,6 +35,10 @@ projectsModal.style.display = "none";
         socialModal.style.display = "flex"
         projectsModal.style.display = "none"
         modalContainer.style.marginLeft= "33.3dvw"
+        if (window.matchMedia("(max-width: 1300px)").matches) 
+        {
+            modalContainer.style.marginLeft= "300px"
+        }
     })
     projectsBox.addEventListener('mouseenter', () => 
     {
@@ -42,6 +46,10 @@ projectsModal.style.display = "none";
         socialModal.style.display = "none"
         projectsModal.style.display = "flex"
         modalContainer.style.marginLeft= "66.6dvw"
+        if (window.matchMedia("(max-width: 1300px)").matches) 
+        {
+            modalContainer.style.marginLeft= "600px"
+        }
     })
     modalMouseArea.addEventListener('mouseleave', () => 
     {
