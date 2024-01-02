@@ -269,6 +269,14 @@ aside{
     {
         width:900px;
     }
+    .modals
+    {
+
+            button
+            {
+                width:300px; 
+            } 
+    }  
     #controls
     {
         overflow-y: scroll;
