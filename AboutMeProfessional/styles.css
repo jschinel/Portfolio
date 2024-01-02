@@ -261,44 +261,71 @@ aside{
 }
 @media screen and (max-width: 900px)
 {
-    #status{
-        display: none;
+    .Top
+    {
+        width:900px;
+    }
+    .Middle
+    {
+        width:900px;
+    }
+    #controls
+    {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        height:656px;
+    }
+    #electricaltech
+    {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        height:656px;
+    }
+    #electricaleng
+    {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        height:656px;
+    }
+    #softwaredevelop
+    {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        height:656px;
+    }
+    .Bottom{
+        height: fit-content;
+        width:900px;
     }
 }
 @media screen and (max-width: 650px)
 {
-    .Bottom{
-            overflow-y:scroll;
-            ::-webkit-scrollbar{
-                width:2em;
-            }
-            ::-webkit-scrollbar-track{
-                background-color: aliceblue;
-            }
-            ::-webkit-scrollbar-thumb{
-                background-color: black;
-            }
-        }
+    .Bottom
+    {
+        overflow-y:scroll;
+    }
 }
 @media screen and (max-height: 900px)
 {
-    .Top{
-            justify-content: center;
-            #history
+    .Top
+    {
+        justify-content: center;
+        #history
+        {
+            display: none;
+        }
+        img
+        {
+            scale:60%;
+        }
+        #status
+        {
+            button
             {
-                display: none;
-            }
-            img
-            {
-                scale:60%;
-            }
-            #status{
-                button{
-                    font-size: 60%;    
-                }
-
+                font-size: 60%;    
             }
         }
+    }
 }
 @media screen and (max-height: 600px)
 {

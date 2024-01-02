@@ -7,7 +7,7 @@ Software language - javascript, css , html
 Installation Instrucations
 
 Click This link and it will bring you to the page
-
+https://jschinel.github.io/Portfolio/
 
 User Stories
 

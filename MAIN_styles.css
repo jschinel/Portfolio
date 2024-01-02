@@ -209,9 +209,18 @@ aside{
 }
 @media screen and (max-width: 900px)
 {
-    #status{
-        display: none;
+    .Top
+    {
+        width:900px;
     }
+    .Middle
+    {
+        width:900px;
+    }
+    .Bottom{
+        width:900px;
+    }
+    
 }
 @media screen and (max-width: 650px)
 {
@@ -266,8 +275,14 @@ aside{
     .Top
     {
         height:271px;
-        #status{
-            button{
+        #status
+        {
+            p
+            {
+            font-size: 90%;                
+            }
+            button
+            {
                 height:20px;
             }
         }

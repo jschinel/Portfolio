@@ -396,18 +396,17 @@ submit.addEventListener('click', () =>
 spanish.addEventListener('click', () => 
 {
     rulesHeader.innerText=`REGLAS`;
-    rulesText.innerHTML=`Una vez que se selecciona una categoría a continuación, se elegirá <b>una palabra aleatoria<b>
-    </b>
-    Usa el teclado en pantalla para seleccionar la letra que crees que contiene <b>la palabra<b>
-    </b>
-    Si la letra que ha seleccionado es correcta, se mostrará<b> 
-    </b>
-    Si es incorrecto, aparecerá en el lado izquierdo en "Letras incorrectas" Y se dibujará una parte del ahorcado.<b>
-    </b>
-    ¡Solo tienes 6 oportunidades! En cualquier momento que creas que sabes la respuesta, puedes escribirla en el lado derecho. ¡Asegúrate de enviarlo!<b>
-    </b>
-
-¡¡Buena suerte!!<b></b>Elija su categoría a continuación`;
+    rulesText.innerHTML=`Una vez que se selecciona una categoría a continuación, se elegirá una palabra aleatoria<br>
+    </br>
+    Usa el teclado en pantalla para seleccionar la letra que crees que contiene la palabra<br>
+    </br>
+    Si la letra que ha seleccionado es correcta, se mostrará<br> 
+    </br>
+    Si es incorrecto, aparecerá en el lado izquierdo en "Letras incorrectas" Y se dibujará una parte del ahorcado.<br>
+    </br>
+    ¡Solo tienes 6 oportunidades! En cualquier momento que creas que sabes la respuesta, puedes escribirla en el lado derecho. ¡Asegúrate de enviarlo!<br>
+    </br>
+    ¡¡Buena suerte!!<b></b>Elija su categoría a continuación`;
     christmasPlayGame.innerText=`Artículos de Navidad`;
     sportsPlayGame.innerText=`Artículos deportivos`
     summerPlayGame.innerText=`Artículos de verano`;
@@ -420,17 +419,16 @@ spanish.addEventListener('click', () =>
 english.addEventListener('click', () => 
 {
     rulesHeader.innerText="RULES";
-    rulesText.innerHTML=`Once a category is selected below a random word will be chosen<b>
-    </b>
-    Use the on screen keyboard to select the letter that you think the word conatains<b>
-    </b>
-    If the letter you have selected is correct it will be be displayed 
-    </b>
-    If its incorrect it will be listed on the left hand side under "Incorrect Letters" AND a piece of the hangman will be drawn on.<b>
-    </b>
-    You only have 6 chances! At any time you think you know the answer you can type it in on the right hand side. Make sure to submit!<B>
-    </b>
-
+    rulesText.innerHTML=`Once a category is selected below a random word will be chosen<br>
+    </br>
+    Use the on screen keyboard to select the letter that you think the word conatains<br>
+    </br>
+    If the letter you have selected is correct it will be be displayed<br>
+    </br>
+    If its incorrect it will be listed on the left hand side under "Incorrect Letters" AND a piece of the hangman will be drawn on.<br>
+    </br>
+    You only have 6 chances! At any time you think you know the answer you can type it in on the right hand side. Make sure to submit!<br>
+    </br>
     Good Luck!!<b></b>Choose your category below`;
     christmasPlayGame.innerText=`Christmas Items`;
     sportsPlayGame.innerText=`Sports Items`;
